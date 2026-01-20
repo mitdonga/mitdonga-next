@@ -21,7 +21,7 @@ export const Hero = () => {
             transition={{ duration: 0.6 }}
             className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-4 text-foreground"
           >
-            Hi, I'm <span className="text-gradient">Mit Donga</span>
+            👋 Hi, I'm <span className="text-gradient">Mit Donga</span>
           </motion.h2>
 
           <motion.h1
