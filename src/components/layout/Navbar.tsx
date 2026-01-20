@@ -29,7 +29,7 @@ export const Navbar = () => {
             className="text-xl font-bold text-gradient"
             whileHover={{ scale: 1.05 }}
           >
-            {"<Dev />"}
+            {"<Mit />"}
           </motion.a>
 
           {/* Desktop Navigation */}
