@@ -82,7 +82,7 @@ export const Projects = () => {
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/80 to-card/40" />
               </div>
               
               <div className="p-6">
@@ -90,17 +90,17 @@ export const Projects = () => {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 text-xs rounded-full bg-secondary text-muted-foreground border border-border"
+                      className="px-3 py-1 text-xs font-medium rounded-full bg-primary/20 text-primary border border-primary/30"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
                 
-                <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-foreground/70 text-sm leading-relaxed mb-4">
+                <p className="text-foreground/80 text-sm leading-relaxed mb-4">
                   {project.description}
                 </p>
                 
