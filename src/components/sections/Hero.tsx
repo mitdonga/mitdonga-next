@@ -69,7 +69,7 @@ export const Hero = () => {
             className="flex items-center justify-center gap-6"
           >
             <a
-              href="https://github.com"
+              href="https://github.com/mitdonga"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -77,7 +77,7 @@ export const Hero = () => {
               <Github className="w-6 h-6" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/mitdonga"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors"
@@ -85,7 +85,7 @@ export const Hero = () => {
               <Linkedin className="w-6 h-6" />
             </a>
             <a
-              href="https://upwork.com"
+              href="https://www.upwork.com/freelancers/mitdonga"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground hover:text-primary transition-colors font-mono text-sm font-semibold"
