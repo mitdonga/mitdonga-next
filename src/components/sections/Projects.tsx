@@ -82,36 +82,37 @@ export const Projects = () => {
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-card via-card/80 to-card/40" />
               </div>
               
-              <div className="p-6">
+              <div className="absolute inset-0 bg-gradient-to-t from-card from-40% via-card/95 via-60% to-transparent" />
+              
+              <div className="absolute bottom-0 left-0 right-0 p-6">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 text-xs font-medium rounded-full bg-primary/20 text-primary border border-primary/30"
+                      className="px-3 py-1 text-xs font-semibold rounded-full bg-primary text-primary-foreground"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
                 
-                <h3 className="text-xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors">
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-foreground/80 text-sm leading-relaxed mb-4">
+                <p className="text-white/90 text-sm leading-relaxed mb-4">
                   {project.description}
                 </p>
                 
                 <div className="flex gap-3">
-                  <Button variant="glass" size="sm" asChild>
+                  <Button variant="glow" size="sm" asChild>
                     <a href={project.link} target="_blank" rel="noopener noreferrer">
                       <ExternalLink className="w-4 h-4" />
                       Live Demo
                     </a>
                   </Button>
-                  <Button variant="ghost" size="sm" asChild>
+                  <Button variant="outline" size="sm" asChild className="border-white/30 text-white hover:bg-white/10">
                     <a href={project.github} target="_blank" rel="noopener noreferrer">
                       <Github className="w-4 h-4" />
                       Code
