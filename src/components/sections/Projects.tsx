@@ -100,7 +100,7 @@ export const Projects = () => {
                 <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
+                <p className="text-foreground/70 text-sm leading-relaxed mb-4">
                   {project.description}
                 </p>
                 
