@@ -34,7 +34,7 @@ export const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
+            {navLinks.filter(link => link.name !== "Contact").map((link) => (
               <motion.a
                 key={link.name}
                 href={link.href}
@@ -44,8 +44,8 @@ export const Navbar = () => {
                 {link.name}
               </motion.a>
             ))}
-            <Button variant="glow" size="sm">
-              Hire Me
+            <Button variant="glow" size="sm" asChild>
+              <a href="#contact">Contact Me</a>
             </Button>
           </div>
 
@@ -65,7 +65,7 @@ export const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             className="md:hidden mt-4 pb-4 flex flex-col gap-4"
           >
-            {navLinks.map((link) => (
+            {navLinks.filter(link => link.name !== "Contact").map((link) => (
               <a
                 key={link.name}
                 href={link.href}
@@ -75,8 +75,8 @@ export const Navbar = () => {
                 {link.name}
               </a>
             ))}
-            <Button variant="glow" size="sm" className="w-fit">
-              Hire Me
+            <Button variant="glow" size="sm" className="w-fit" asChild>
+              <a href="#contact" onClick={() => setIsOpen(false)}>Contact Me</a>
             </Button>
           </motion.div>
         )}
