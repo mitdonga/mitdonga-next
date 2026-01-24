@@ -10,6 +10,13 @@ const experiences = [
     highlights: ["SaaS Products", "AI-Powered Tools", "Automation Platforms"],
   },
   {
+    title: "AI Automation & Software Consultant",
+    company: "Independent",
+    period: "June 2025 - Present",
+    description: "Work directly with founders and teams to design and implement AI automations, agentic workflows, and custom software that increase revenue, improve productivity, and reduce operational overhead.",
+    highlights: ["AI Consulting", "Agentic Workflows", "Custom Software"],
+  },
+  {
     title: "AI Automation Expert & Full-Stack Developer",
     company: "Velotio Technologies",
     period: "April 2025 - Present",
