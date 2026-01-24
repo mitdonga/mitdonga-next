@@ -3,6 +3,13 @@ import { Briefcase, Calendar } from "lucide-react";
 
 const experiences = [
   {
+    title: "Founder",
+    company: "PitchGen & AutomateTG",
+    period: "November 2025 - Present",
+    description: "PitchGen is an AI-Powered Website Audits & Pitch Deck Generator that helps digital marketers and agencies close deals faster. AutomateTG is a Telegram automation platform powered by AI and MTProto.",
+    highlights: ["SaaS Products", "AI-Powered Tools", "Automation Platforms"],
+  },
+  {
     title: "AI Automation Expert & Full-Stack Developer",
     company: "Velotio Technologies",
     period: "April 2025 - Present",
