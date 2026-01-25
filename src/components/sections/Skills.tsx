@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Bot, Layout, Server, Database, Cloud, Wrench, CreditCard } from "lucide-react";
+import { Bot, Layout, Server, Database, Cloud, Wrench, CreditCard, Users } from "lucide-react";
 
 const skillCategories = [
   {
@@ -34,8 +34,13 @@ const skillCategories = [
   },
   {
     icon: CreditCard,
-    title: "Payment & CRM",
-    skills: ["Stripe", "PayPal", "CyberSource", "Paysafe", "GoHighLevel", "Zoho", "ClickUp", "HubSpot", "Jira"],
+    title: "Payment Gateways",
+    skills: ["Stripe", "PayPal", "CyberSource", "Paysafe"],
+  },
+  {
+    icon: Users,
+    title: "CRM Platforms",
+    skills: ["GoHighLevel", "Zoho", "ClickUp", "HubSpot", "Jira"],
   },
 ];
 
