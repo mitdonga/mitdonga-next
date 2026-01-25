@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import eyalBgImage from "@/assets/eyal-bg.png";
+import fungaiImage from "@/assets/fungai-tichawangana.png";
 
 const reviews = [
   {
@@ -15,7 +16,8 @@ const reviews = [
     role: "Artist Dynamix",
     content: "Mit has been great to work with! He's very responsive, and he explains everything in detail. He includes documents/comments in his workflows, making them easy to follow! He goes the extra mile. Very happy with the final product.",
     rating: 5,
-    linkedin: "https://artistdynamix.com/",
+    linkedin: "https://www.linkedin.com/in/fungaiforvisibility/",
+    image: fungaiImage,
   },
   {
     name: "Eyal BG",
