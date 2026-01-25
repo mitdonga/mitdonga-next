@@ -3,32 +3,38 @@ import { Star, Quote } from "lucide-react";
 
 const reviews = [
   {
-    name: "Sarah Johnson",
-    role: "CEO, TechStart Inc",
-    content: "Exceptional work on our automation project. Delivered ahead of schedule and exceeded all expectations. The AI integration was flawless.",
+    name: "Josiah Bravo",
+    role: "JJ Tech Innovations",
+    content: "Mit worked with us on ElevenLabs voice agent and n8n Workflow project and delivered outstanding results. He successfully built an AI agent that integrated seamlessly with the Google Cloud API, automated calendar event creation, appended rows to Google Sheets, and handled order confirmation emails. Throughout the project, Mit was smooth, professional, and highly efficient. His work ethic and quality were exceptional—everything was delivered punctually and at the highest standard. Highly recommendable.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&auto=format&fit=crop&q=60",
+    linkedin: "https://www.jjtechinnovations.com",
   },
   {
-    name: "Michael Chen",
-    role: "Founder, DataFlow",
-    content: "Outstanding full-stack development skills. Built our entire SaaS platform from scratch with clean, maintainable code. Highly recommended!",
+    name: "Fungai Tichawangana",
+    role: "Artist Dynamix",
+    content: "Mit has been great to work with! He's very responsive, and he explains everything in detail. He includes documents/comments in his workflows, making them easy to follow! He goes the extra mile. Very happy with the final product.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&auto=format&fit=crop&q=60",
+    linkedin: "https://artistdynamix.com/",
   },
   {
-    name: "Emily Rodriguez",
-    role: "Product Manager, InnovateCo",
-    content: "Transformed our manual processes with intelligent automation. Saved our team countless hours. Professional and communicative throughout.",
+    name: "Eyal BG",
+    role: "ufound AI",
+    content: "Mit is incredible! Went above and beyond with helping me fix errors in my n8n project. Will definitely be working with him again.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&auto=format&fit=crop&q=60",
+    linkedin: "https://www.linkedin.com/in/eyal-benzaquen-gabriel/",
   },
   {
-    name: "David Kim",
-    role: "CTO, NextGen Solutions",
-    content: "Deep expertise in both AI and full-stack development. Rare combination. Delivered a complex project with precision and creativity.",
+    name: "Howard Joshua",
+    role: "HYD Power",
+    content: "It was great working with Mit. He is very knowledgeable about automation and what is possible. I would 100% use him again when I need him.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&auto=format&fit=crop&q=60",
+    linkedin: "https://hydpower.com.au/",
+  },
+  {
+    name: "Aakash Ravikumar",
+    role: "Client",
+    content: "It was great working with Mit, he understood the problem exactly and found a solution for my specific requirement regarding an automation flow in n8n. Will work with him in future also.",
+    rating: 5,
   },
 ];
 
@@ -66,13 +72,19 @@ export const Reviews = () => {
               <Quote className="absolute top-6 right-6 w-10 h-10 text-primary/10" />
               
               <div className="flex items-center gap-4 mb-4">
-                <img
-                  src={review.image}
-                  alt={review.name}
-                  className="w-14 h-14 rounded-full object-cover border-2 border-primary/30"
-                />
+                <div className="w-14 h-14 rounded-full bg-primary/20 border-2 border-primary/30 flex items-center justify-center">
+                  <span className="text-primary font-bold text-lg">
+                    {review.name.split(' ').map(n => n[0]).join('')}
+                  </span>
+                </div>
                 <div>
-                  <h4 className="font-semibold">{review.name}</h4>
+                  {review.linkedin ? (
+                    <a href={review.linkedin} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-primary transition-colors">
+                      {review.name}
+                    </a>
+                  ) : (
+                    <h4 className="font-semibold">{review.name}</h4>
+                  )}
                   <p className="text-sm text-muted-foreground">{review.role}</p>
                 </div>
               </div>
