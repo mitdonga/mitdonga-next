@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
+import eyalBgImage from "@/assets/eyal-bg.png";
 
 const reviews = [
   {
@@ -22,6 +23,7 @@ const reviews = [
     content: "Mit is incredible! Went above and beyond with helping me fix errors in my n8n project. Will definitely be working with him again.",
     rating: 5,
     linkedin: "https://www.linkedin.com/in/eyal-benzaquen-gabriel/",
+    image: eyalBgImage,
   },
   {
     name: "Howard Joshua",
@@ -72,11 +74,19 @@ export const Reviews = () => {
               <Quote className="absolute top-6 right-6 w-10 h-10 text-primary/10" />
               
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-14 h-14 rounded-full bg-primary/20 border-2 border-primary/30 flex items-center justify-center">
-                  <span className="text-primary font-bold text-lg">
-                    {review.name.split(' ').map(n => n[0]).join('')}
-                  </span>
-                </div>
+                {review.image ? (
+                  <img
+                    src={review.image}
+                    alt={review.name}
+                    className="w-14 h-14 rounded-full object-cover border-2 border-primary/30"
+                  />
+                ) : (
+                  <div className="w-14 h-14 rounded-full bg-primary/20 border-2 border-primary/30 flex items-center justify-center">
+                    <span className="text-primary font-bold text-lg">
+                      {review.name.split(' ').map(n => n[0]).join('')}
+                    </span>
+                  </div>
+                )}
                 <div>
                   {review.linkedin ? (
                     <a href={review.linkedin} target="_blank" rel="noopener noreferrer" className="font-semibold hover:text-primary transition-colors">
