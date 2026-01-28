@@ -18,9 +18,10 @@ export const Navbar = () => {
   const location = useLocation();
   const isHomePage = location.pathname === "/";
 
-  const handleNavClick = (link: typeof navLinks[0]) => {
+  const handleNavClick = (e: React.MouseEvent, link: typeof navLinks[0]) => {
     if (!link.isRoute && !isHomePage) {
-      // If clicking a hash link while not on home page, navigate to home with hash
+      e.preventDefault();
+      // Navigate to home page with hash
       window.location.href = "/" + link.href;
     }
   };
@@ -57,10 +58,10 @@ export const Navbar = () => {
               ) : (
                 <motion.a
                   key={link.name}
-                  href={isHomePage ? link.href : "/" + link.href}
+                  href={link.href}
                   className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   whileHover={{ y: -2 }}
-                  onClick={() => handleNavClick(link)}
+                  onClick={(e) => handleNavClick(e, link)}
                 >
                   {link.name}
                 </motion.a>
@@ -100,9 +101,12 @@ export const Navbar = () => {
               ) : (
                 <a
                   key={link.name}
-                  href={isHomePage ? link.href : "/" + link.href}
+                  href={link.href}
                   className="text-muted-foreground hover:text-foreground transition-colors"
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => {
+                    handleNavClick(e, link);
+                    setIsOpen(false);
+                  }}
                 >
                   {link.name}
                 </a>
