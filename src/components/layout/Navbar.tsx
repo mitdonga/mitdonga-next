@@ -1,19 +1,29 @@
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
-  { name: "About", href: "#about" },
-  { name: "Projects", href: "#projects" },
-  { name: "Services", href: "#services" },
-  { name: "Experience", href: "#experience" },
-  { name: "Reviews", href: "#reviews" },
-  { name: "Contact", href: "#contact" },
+  { name: "About", href: "#about", isRoute: false },
+  { name: "Projects", href: "/projects", isRoute: true },
+  { name: "Services", href: "#services", isRoute: false },
+  { name: "Experience", href: "#experience", isRoute: false },
+  { name: "Reviews", href: "#reviews", isRoute: false },
+  { name: "Contact", href: "#contact", isRoute: false },
 ];
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
+
+  const handleNavClick = (link: typeof navLinks[0]) => {
+    if (!link.isRoute && !isHomePage) {
+      // If clicking a hash link while not on home page, navigate to home with hash
+      window.location.href = "/" + link.href;
+    }
+  };
 
   return (
     <motion.nav
@@ -35,17 +45,29 @@ export const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.filter(link => link.name !== "Contact").map((link) => (
-              <motion.a
-                key={link.name}
-                href={link.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                whileHover={{ y: -2 }}
-              >
-                {link.name}
-              </motion.a>
+              link.isRoute ? (
+                <motion.div key={link.name} whileHover={{ y: -2 }}>
+                  <Link
+                    to={link.href}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
+              ) : (
+                <motion.a
+                  key={link.name}
+                  href={isHomePage ? link.href : "/" + link.href}
+                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  whileHover={{ y: -2 }}
+                  onClick={() => handleNavClick(link)}
+                >
+                  {link.name}
+                </motion.a>
+              )
             ))}
             <Button variant="glow" size="sm" asChild>
-              <a href="#contact">Contact Me</a>
+              <a href={isHomePage ? "#contact" : "/#contact"}>Contact Me</a>
             </Button>
           </div>
 
@@ -66,17 +88,28 @@ export const Navbar = () => {
             className="md:hidden mt-4 pb-4 flex flex-col gap-4"
           >
             {navLinks.filter(link => link.name !== "Contact").map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
-              </a>
+              link.isRoute ? (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  href={isHomePage ? link.href : "/" + link.href}
+                  className="text-muted-foreground hover:text-foreground transition-colors"
+                  onClick={() => setIsOpen(false)}
+                >
+                  {link.name}
+                </a>
+              )
             ))}
             <Button variant="glow" size="sm" className="w-fit" asChild>
-              <a href="#contact" onClick={() => setIsOpen(false)}>Contact Me</a>
+              <a href={isHomePage ? "#contact" : "/#contact"} onClick={() => setIsOpen(false)}>Contact Me</a>
             </Button>
           </motion.div>
         )}
