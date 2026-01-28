@@ -1,45 +1,10 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { projects } from "@/data/projectsData";
 
-const projects = [
-  {
-    title: "PitchGen",
-    description: "AI-powered SaaS platform that helps startups create compelling pitch decks in minutes. Features intelligent content generation, design templates, and investor-ready exports.",
-    tags: ["React", "Node.js", "AI/ML", "SaaS"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=60",
-    link: "#",
-    github: "#",
-    featured: true,
-  },
-  {
-    title: "Automate TG",
-    description: "Telegram automation platform enabling businesses to build powerful bots and workflows. Handles millions of messages with smart routing and AI responses.",
-    tags: ["Python", "Telegram API", "Automation", "AI"],
-    image: "https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&auto=format&fit=crop&q=60",
-    link: "#",
-    github: "#",
-    featured: true,
-  },
-  {
-    title: "AI Workflow Engine",
-    description: "Enterprise automation tool that connects various APIs and services with intelligent decision-making capabilities.",
-    tags: ["TypeScript", "AI", "APIs", "Enterprise"],
-    image: "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?w=800&auto=format&fit=crop&q=60",
-    link: "#",
-    github: "#",
-    featured: false,
-  },
-  {
-    title: "Real-time Analytics Dashboard",
-    description: "High-performance dashboard for visualizing complex data streams with customizable widgets and alerts.",
-    tags: ["React", "D3.js", "WebSocket", "Analytics"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=60",
-    link: "#",
-    github: "#",
-    featured: false,
-  },
-];
+const featuredProjects = projects.filter((p) => p.is_featured);
 
 export const Projects = () => {
   return (
@@ -64,7 +29,7 @@ export const Projects = () => {
         </motion.div>
 
         <div className="grid lg:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+          {featuredProjects.map((project, index) => (
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 40 }}
@@ -72,9 +37,7 @@ export const Projects = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              className={`group relative rounded-2xl overflow-hidden border border-border bg-card ${
-                project.featured ? "lg:col-span-1" : ""
-              }`}
+              className="group relative rounded-2xl overflow-hidden border border-border bg-card"
             >
               <div className="aspect-video overflow-hidden">
                 <img
@@ -88,12 +51,12 @@ export const Projects = () => {
               
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag) => (
+                  {project.skills.map((skill) => (
                     <span
-                      key={tag}
+                      key={skill}
                       className="px-3 py-1 text-xs font-medium rounded-full bg-white/15 text-white/90 backdrop-blur-sm border border-white/20"
                     >
-                      {tag}
+                      {skill}
                     </span>
                   ))}
                 </div>
@@ -112,17 +75,35 @@ export const Projects = () => {
                       Live Demo
                     </a>
                   </Button>
-                  <Button variant="outline" size="sm" asChild className="border-white/30 text-white hover:bg-white/10">
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
-                      <Github className="w-4 h-4" />
-                      Code
-                    </a>
-                  </Button>
+                  {project.github && (
+                    <Button variant="outline" size="sm" asChild className="border-white/30 text-white hover:bg-white/10">
+                      <a href={project.github} target="_blank" rel="noopener noreferrer">
+                        <Github className="w-4 h-4" />
+                        Code
+                      </a>
+                    </Button>
+                  )}
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* View All Projects Button */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-center mt-12"
+        >
+          <Button variant="outline" size="lg" asChild>
+            <Link to="/projects">
+              View All Projects
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </Button>
+        </motion.div>
       </div>
     </section>
   );
