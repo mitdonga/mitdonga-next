@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Code2, Brain, Rocket, Zap } from "lucide-react";
 

@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Mail, MapPin, Send, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -53,8 +55,8 @@ export const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-medium mb-1">Email</h4>
-                  <a href="mailto:hello@example.com" className="text-muted-foreground hover:text-primary transition-colors">
-                    hello@example.com
+                  <a href="mailto:hello@mitdonga.com" className="text-muted-foreground hover:text-primary transition-colors">
+                    hello@mitdonga.com
                   </a>
                 </div>
               </div>
@@ -65,7 +67,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-medium mb-1">Upwork</h4>
-                  <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  <a href="https://www.upwork.com/freelancers/mitdonga" className="text-muted-foreground hover:text-primary transition-colors">
                     View my profile
                   </a>
                 </div>
@@ -77,7 +79,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <h4 className="font-medium mb-1">Location</h4>
-                  <p className="text-muted-foreground">Available Worldwide (Remote)</p>
+                  <p className="text-muted-foreground">Gujarat, India</p>
                 </div>
               </div>
             </div>

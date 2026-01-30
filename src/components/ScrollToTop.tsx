@@ -1,10 +1,15 @@
+"use client";
+
 import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { usePathname, useSearchParams } from "next/navigation";
 
 export const ScrollToTop = () => {
-  const { pathname, hash } = useLocation();
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
+    const hash = window.location.hash;
+    
     if (hash) {
       // If there's a hash, scroll to that element
       const element = document.querySelector(hash);
@@ -18,7 +23,7 @@ export const ScrollToTop = () => {
       // No hash, scroll to top
       window.scrollTo(0, 0);
     }
-  }, [pathname, hash]);
+  }, [pathname, searchParams]);
 
   return null;
 };

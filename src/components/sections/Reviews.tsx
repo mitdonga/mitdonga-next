@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import eyalBgImage from "@/assets/eyal-bg.png";
@@ -78,7 +80,7 @@ export const Reviews = () => {
               <div className="flex items-center gap-4 mb-4">
                 {review.image ? (
                   <img
-                    src={review.image}
+                    src={review.image.src}
                     alt={review.name}
                     className="w-14 h-14 rounded-full object-cover border-2 border-primary/30"
                   />

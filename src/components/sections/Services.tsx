@@ -1,3 +1,5 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Bot, Code, Database, Globe, Layers, Sparkles } from "lucide-react";
 

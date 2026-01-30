@@ -14,7 +14,7 @@ export const Footer = () => {
           </div>
 
           <div className="flex items-center gap-1 text-sm text-muted-foreground">
-            Built with <Heart className="w-4 h-4 text-primary mx-1" /> using React & Tailwind
+            Built with <Heart className="w-4 h-4 text-primary mx-1" /> using Next.js & Tailwind
           </div>
 
           <div className="flex items-center gap-4">

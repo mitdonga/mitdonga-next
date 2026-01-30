@@ -1,7 +1,10 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
@@ -15,8 +18,8 @@ const navLinks = [
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
-  const isHomePage = location.pathname === "/";
+  const pathname = usePathname();
+  const isHomePage = pathname === "/";
 
   const handleNavClick = (e: React.MouseEvent, link: typeof navLinks[0]) => {
     if (!link.isRoute && !isHomePage) {
@@ -49,7 +52,7 @@ export const Navbar = () => {
               link.isRoute ? (
                 <motion.div key={link.name} whileHover={{ y: -2 }}>
                   <Link
-                    to={link.href}
+                    href={link.href}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.name}
@@ -92,7 +95,7 @@ export const Navbar = () => {
               link.isRoute ? (
                 <Link
                   key={link.name}
-                  to={link.href}
+                  href={link.href}
                   className="text-muted-foreground hover:text-foreground transition-colors"
                   onClick={() => setIsOpen(false)}
                 >

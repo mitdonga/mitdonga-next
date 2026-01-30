@@ -1,6 +1,8 @@
+"use client";
+
 import { motion } from "framer-motion";
 import { ExternalLink, Github, ArrowRight } from "lucide-react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/data/projectsData";
 
@@ -98,7 +100,7 @@ export const Projects = () => {
           className="text-center mt-12"
         >
           <Button variant="outline" size="lg" asChild>
-            <Link to="/projects">
+            <Link href="/projects">
               View All Projects
               <ArrowRight className="w-4 h-4" />
             </Link>
