@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense } from "react";
 import { motion } from "framer-motion";
 import { ExternalLink, Github, ArrowLeft } from "lucide-react";
 import Link from "next/link";
@@ -11,7 +12,9 @@ import { projects } from "@/data/projectsData";
 export default function ProjectsPage() {
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
+      <Suspense fallback={<div className="h-16" />}>
+        <Navbar />
+      </Suspense>
 
       <main className="pt-24 pb-16">
         <div className="container mx-auto px-6">
@@ -31,7 +34,7 @@ export default function ProjectsPage() {
             </Link>
 
             <span className="text-primary font-mono text-sm mb-4 block">
-              // ALL PROJECTS
+              {`// ALL PROJECTS`}
             </span>
             <h1 className="text-3xl md:text-5xl font-bold mb-6">
               My <span className="text-gradient">Projects</span>

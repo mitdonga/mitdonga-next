@@ -59,7 +59,7 @@ export const Experience = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-mono text-sm mb-4 block">// EXPERIENCE</span>
+          <span className="text-primary font-mono text-sm mb-4 block">{`// EXPERIENCE`}</span>
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             My <span className="text-gradient">Journey</span>
           </h2>

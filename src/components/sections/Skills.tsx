@@ -57,7 +57,7 @@ export const Skills = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-mono text-sm mb-4 block">// TECH STACK</span>
+          <span className="text-primary font-mono text-sm mb-4 block">{`// TECH STACK`}</span>
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Skills & <span className="text-gradient">Technologies</span>
           </h2>

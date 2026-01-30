@@ -53,7 +53,7 @@ export const Services = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-mono text-sm mb-4 block">// SERVICES</span>
+          <span className="text-primary font-mono text-sm mb-4 block">{`// SERVICES`}</span>
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             What I <span className="text-gradient">Offer</span>
           </h2>

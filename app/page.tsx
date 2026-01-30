@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
@@ -25,7 +26,9 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
-      <Navbar />
+      <Suspense fallback={<div className="h-16" />}>
+        <Navbar />
+      </Suspense>
       <main>
         <Hero />
         <About />

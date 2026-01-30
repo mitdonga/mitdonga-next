@@ -30,12 +30,12 @@ export const Contact = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-mono text-sm mb-4 block">// GET IN TOUCH</span>
+          <span className="text-primary font-mono text-sm mb-4 block">{`// GET IN TOUCH`}</span>
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
-            Let's Work <span className="text-gradient">Together</span>
+            Let&apos;s Work <span className="text-gradient">Together</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Have a project in mind? Let's discuss how I can help bring your vision to life.
+            Have a project in mind? Let&apos;s discuss how I can help bring your vision to life.
           </p>
         </motion.div>
 
@@ -86,7 +86,7 @@ export const Contact = () => {
 
             <div className="mt-8 p-6 rounded-2xl bg-gradient-to-r from-primary/10 to-glow-secondary/10 border border-border">
               <p className="text-sm text-muted-foreground">
-                <span className="text-primary font-semibold">Response time:</span> I typically respond within 24 hours. For urgent projects, mention "URGENT" in your message.
+                <span className="text-primary font-semibold">Response time:</span> I typically respond within 24 hours. For urgent projects, mention &quot;URGENT&quot; in your message.
               </p>
             </div>
           </motion.div>

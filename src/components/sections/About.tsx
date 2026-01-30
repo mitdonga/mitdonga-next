@@ -21,12 +21,12 @@ export const About = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-mono text-sm mb-4 block">// ABOUT ME</span>
+          <span className="text-primary font-mono text-sm mb-4 block">{`// ABOUT ME`}</span>
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Crafting Digital <span className="text-gradient">Experiences</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            I'm a passionate developer who thrives at the intersection of technology and creativity. 
+            I&apos;m a passionate developer who thrives at the intersection of technology and creativity. 
             With expertise in full-stack development and AI automation, I build products that make a difference.
           </p>
         </motion.div>

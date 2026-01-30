@@ -55,7 +55,7 @@ export const Reviews = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <span className="text-primary font-mono text-sm mb-4 block">// TESTIMONIALS</span>
+          <span className="text-primary font-mono text-sm mb-4 block">{`// TESTIMONIALS`}</span>
           <h2 className="text-3xl md:text-5xl font-bold mb-6">
             Client <span className="text-gradient">Reviews</span>
           </h2>

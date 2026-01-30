@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Providers } from "./providers";
 import "./globals.css";
 import { ScrollToTop } from "@/components/ScrollToTop";
@@ -35,7 +36,9 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Providers>
-          <ScrollToTop />
+          <Suspense fallback={null}>
+            <ScrollToTop />
+          </Suspense>
           {children}
         </Providers>
       </body>
