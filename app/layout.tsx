@@ -3,6 +3,7 @@ import { Suspense } from "react";
 import { Providers } from "./providers";
 import "./globals.css";
 import { ScrollToTop } from "@/components/ScrollToTop";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
   title: "Full Stack Developer & AI Automation Expert | Portfolio",
@@ -38,6 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <SpeedInsights />
         <Providers>
           <Suspense fallback={null}>
             <ScrollToTop />
