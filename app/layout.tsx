@@ -6,29 +6,26 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 export const metadata: Metadata = {
-  title: "Full Stack Developer & AI Automation Expert | Portfolio",
+  title: "Mit Donga - Full Stack Developer & AI Automation Expert",
   description:
-    "Full Stack Developer and AI Automation Expert. Founder of PitchGen & Automate TG. Building the future with code and AI. Available for freelance projects.",
-  authors: [{ name: "Developer Portfolio" }],
+    "Mit Donga is a Full Stack Developer and AI Automation Expert. Founder of PitchGen & Automate TG. Building the future with code and AI.",
+  authors: [{ name: "Mit Donga" }],
   icons: {
     icon: "/favicon.png",
   },
   openGraph: {
-    title: "Full Stack Developer & AI Automation Expert",
+    title: "Mit Donga - Full Stack Developer & AI Automation Expert",
     description:
-      "Building the future with code and AI. Founder of PitchGen & Automate TG. Available for freelance projects.",
+      "Mit Donga is a Full Stack Developer and AI Automation Expert. Founder of PitchGen & Automate TG. Building the future with code and AI.",
     type: "website",
+    siteName: "Mit Donga",
+    url: "https://mitdonga.com",
     images: [
       {
-        url: "https://lovable.dev/opengraph-image-p98pqg.png",
+        url: "/favicon.png",
       },
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    site: "@yourhandle",
-    images: ["https://lovable.dev/opengraph-image-p98pqg.png"],
-  },
+  }
 };
 
 export default function RootLayout({
