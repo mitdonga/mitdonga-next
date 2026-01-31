@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   description:
     "Full Stack Developer and AI Automation Expert. Founder of PitchGen & Automate TG. Building the future with code and AI. Available for freelance projects.",
   authors: [{ name: "Developer Portfolio" }],
+  icons: {
+    icon: "/favicon.png",
+  },
   openGraph: {
     title: "Full Stack Developer & AI Automation Expert",
     description:
