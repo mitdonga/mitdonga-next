@@ -42,6 +42,12 @@ const reviews = [
     content: "It was great working with Mit, he understood the problem exactly and found a solution for my specific requirement regarding an automation flow in n8n. Will work with him in future also.",
     rating: 5,
   },
+  {
+    name: "Avi Bar",
+    role: "Bulktrade Ltd",
+    content: "Mit is very responsive, professional and meticulous, highly recommended",
+    rating: 5,
+  },
 ];
 
 export const Reviews = () => {
