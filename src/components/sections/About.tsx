@@ -64,7 +64,7 @@ export const About = () => {
               <div className="text-muted-foreground">Projects Completed</div>
             </div>
             <div>
-              <div className="text-4xl font-bold text-gradient mb-2">5+</div>
+              <div className="text-4xl font-bold text-gradient mb-2">{new Date().getFullYear() - 2021}+</div>
               <div className="text-muted-foreground">Years Experience</div>
             </div>
             <div>
