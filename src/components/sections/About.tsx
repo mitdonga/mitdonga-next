@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Code2, Brain, Rocket, Zap } from "lucide-react";
 
 const skills = [
-  { icon: Code2, title: "Full Stack Development", description: "React, Node.js, TypeScript, Python, and modern web technologies" },
+  { icon: Code2, title: "Full Stack Development", description: "React, Ruby on Rails, Node.js, and modern web technologies" },
   { icon: Brain, title: "AI & Machine Learning", description: "Building intelligent systems and automation workflows" },
   { icon: Rocket, title: "SaaS Products", description: "End-to-end product development from concept to launch" },
   { icon: Zap, title: "Automation Expert", description: "Streamlining workflows and reducing manual processes" },
