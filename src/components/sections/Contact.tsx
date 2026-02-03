@@ -4,8 +4,10 @@ import { motion } from "framer-motion";
 import { Mail, MapPin, Send, MessageSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { useFreelancerView } from "@/hooks/use-freelancer-view";
 
 export const Contact = () => {
+  const isFreelancerView = useFreelancerView();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -61,17 +63,19 @@ export const Contact = () => {
                 </div>
               </div>
               
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <MessageSquare className="w-5 h-5 text-primary" />
+              {isFreelancerView && (
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <MessageSquare className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <h4 className="font-medium mb-1">Upwork</h4>
+                    <a href="https://www.upwork.com/freelancers/mitdonga" className="text-muted-foreground hover:text-primary transition-colors">
+                      View my profile
+                    </a>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-medium mb-1">Upwork</h4>
-                  <a href="https://www.upwork.com/freelancers/mitdonga" className="text-muted-foreground hover:text-primary transition-colors">
-                    View my profile
-                  </a>
-                </div>
-              </div>
+              )}
               
               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">

@@ -1,7 +1,11 @@
+"use client";
+
 import { Github, Linkedin, Heart } from "lucide-react";
+import { useFreelancerView } from "@/hooks/use-freelancer-view";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const isFreelancerView = useFreelancerView();
 
   return (
     <footer className="py-8 border-t border-border">
@@ -34,14 +38,16 @@ export const Footer = () => {
             >
               <Linkedin className="w-5 h-5" />
             </a>
-            <a
-              href="https://www.upwork.com/freelancers/mitdonga"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors font-mono text-xs font-semibold"
-            >
-              Upwork
-            </a>
+            {isFreelancerView && (
+              <a
+                href="https://www.upwork.com/freelancers/mitdonga"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors font-mono text-xs font-semibold"
+              >
+                Upwork
+              </a>
+            )}
           </div>
         </div>
       </div>

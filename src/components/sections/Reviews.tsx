@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import eyalBgImage from "@/assets/eyal-bg.png";
 import fungaiImage from "@/assets/fungai-tichawangana.png";
+import { useFreelancerView } from "@/hooks/use-freelancer-view";
 
 const reviews = [
   {
@@ -51,6 +52,12 @@ const reviews = [
 ];
 
 export const Reviews = () => {
+  const isFreelancerView = useFreelancerView();
+
+  if (!isFreelancerView) {
+    return null;
+  }
+
   return (
     <section id="reviews" className="py-24 relative bg-secondary/30">
       <div className="container mx-auto px-6">

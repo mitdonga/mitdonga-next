@@ -121,7 +121,9 @@ export default function ProjectsPage() {
         </div>
       </main>
 
-      <Footer />
+      <Suspense fallback={<div className="h-20" />}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }

@@ -30,16 +30,26 @@ export default function HomePage() {
         <Navbar />
       </Suspense>
       <main>
-        <Hero />
+        <Suspense fallback={null}>
+          <Hero />
+        </Suspense>
         <About />
         <Skills />
         <Projects />
         <Services />
-        <Experience />
-        <Reviews />
-        <Contact />
+        <Suspense fallback={null}>
+          <Experience />
+        </Suspense>
+        <Suspense fallback={null}>
+          <Reviews />
+        </Suspense>
+        <Suspense fallback={null}>
+          <Contact />
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={<div className="h-20" />}>
+        <Footer />
+      </Suspense>
     </div>
   );
 }

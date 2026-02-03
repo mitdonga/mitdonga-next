@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Briefcase, Calendar } from "lucide-react";
+import { useFreelancerView } from "@/hooks/use-freelancer-view";
 
 const experiences = [
   {
@@ -17,6 +18,7 @@ const experiences = [
     period: "June 2025 - Present",
     description: "Work directly with founders and teams to design and implement AI automations, agentic workflows, and custom software that increase revenue, improve productivity, and reduce operational overhead.",
     highlights: ["AI Consulting", "Agentic Workflows", "Custom Software"],
+    freelance: true,
   },
   {
     title: "AI Automation Expert & Full-Stack Developer",
@@ -49,6 +51,16 @@ const experiences = [
 ];
 
 export const Experience = () => {
+  const isFreelancerView = useFreelancerView();
+  
+  // Filter out freelance experiences when not in freelancer view
+  const filteredExperiences = experiences.filter((exp) => {
+    if (!isFreelancerView && exp.freelance === true) {
+      return false;
+    }
+    return true;
+  });
+
   return (
     <section id="experience" className="py-24 relative">
       <div className="container mx-auto px-6">
@@ -69,7 +81,7 @@ export const Experience = () => {
         </motion.div>
 
         <div className="max-w-3xl mx-auto">
-          {experiences.map((exp, index) => (
+          {filteredExperiences.map((exp, index) => (
             <motion.div
               key={exp.title + exp.company}
               initial={{ opacity: 0, x: -40 }}
@@ -79,7 +91,7 @@ export const Experience = () => {
               className="relative pl-8 pb-12 last:pb-0"
             >
               {/* Timeline line */}
-              {index !== experiences.length - 1 && (
+              {index !== filteredExperiences.length - 1 && (
                 <div className="absolute left-[11px] top-8 bottom-0 w-px bg-border" />
               )}
               

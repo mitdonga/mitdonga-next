@@ -3,8 +3,10 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useFreelancerView } from "@/hooks/use-freelancer-view";
 
 export const Hero = () => {
+  const isFreelancerView = useFreelancerView();
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
       {/* Background Effects */}
@@ -83,14 +85,16 @@ export const Hero = () => {
             >
               <Linkedin className="w-6 h-6" />
             </a>
-            <a
-              href="https://www.upwork.com/freelancers/mitdonga"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary transition-colors font-mono text-sm font-semibold"
-            >
-              Upwork
-            </a>
+            {isFreelancerView && (
+              <a
+                href="https://www.upwork.com/freelancers/mitdonga"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted-foreground hover:text-primary transition-colors font-mono text-sm font-semibold"
+              >
+                Upwork
+              </a>
+            )}
           </motion.div>
         </div>
 
