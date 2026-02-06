@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowDown, Github, Linkedin, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useFreelancerView } from "@/hooks/use-freelancer-view";
+import Link from "next/link";
 
 export const Hero = () => {
   const isFreelancerView = useFreelancerView();
@@ -54,12 +55,16 @@ export const Hero = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-wrap items-center justify-center gap-4 mb-12"
           >
-            <Button variant="glow" size="lg">
-              View My Work
-              <ExternalLink className="w-4 h-4" />
+            <Button variant="glow" size="lg" asChild>
+              <Link href="/projects">
+                View My Work
+                <ExternalLink className="w-4 h-4" />
+              </Link>
             </Button>
-            <Button variant="outline" size="lg">
-              Get In Touch
+            <Button variant="outline" size="lg" asChild>
+              <Link href="#contact">
+                Get In Touch
+              </Link>
             </Button>
           </motion.div>
 
