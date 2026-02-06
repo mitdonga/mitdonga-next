@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 
 const navLinks = [
@@ -12,13 +12,13 @@ const navLinks = [
   { name: "Projects", href: "/projects", isRoute: true },
   { name: "Services", href: "#services", isRoute: false },
   { name: "Experience", href: "#experience", isRoute: false },
-  { name: "Reviews", href: "#reviews", isRoute: false },
-  { name: "Contact", href: "#contact", isRoute: false },
+  { name: "Reviews", href: "#reviews", isRoute: false }
 ];
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
   const isHomePage = pathname === "/";
 
   const handleNavClick = (e: React.MouseEvent, link: typeof navLinks[0]) => {
@@ -38,17 +38,17 @@ export const Navbar = () => {
     >
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <motion.a
-            href="#"
-            className="text-xl font-bold text-gradient"
+          <motion.div
+            className="text-xl font-bold text-gradient cursor-pointer"
             whileHover={{ scale: 1.05 }}
+            onClick={() => router.push("/")}
           >
             {"<Mit />"}
-          </motion.a>
+          </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.filter(link => link.name !== "Contact").map((link) => (
+            {navLinks.map((link) => (
               link.isRoute ? (
                 <motion.div key={link.name} whileHover={{ y: -2 }}>
                   <Link
