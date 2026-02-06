@@ -13,11 +13,45 @@ export const Contact = () => {
     email: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch("https://n8n.mitdonga.com/webhook/contact-me", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      setSubmitStatus("success");
+      setFormData({ name: "", email: "", message: "" });
+      
+      // Clear success message after 5 seconds
+      setTimeout(() => setSubmitStatus(null), 5000);
+    } catch (error) {
+      setSubmitStatus("error");
+      console.error("Error submitting form:", error);
+      
+      // Clear error message after 5 seconds
+      setTimeout(() => setSubmitStatus(null), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -148,10 +182,36 @@ export const Contact = () => {
               />
             </div>
             
-            <Button variant="glow" size="lg" type="submit" className="w-full">
-              Send Message
+            <Button 
+              variant="glow" 
+              size="lg" 
+              type="submit" 
+              className="w-full"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Sending..." : "Send Message"}
               <Send className="w-4 h-4" />
             </Button>
+
+            {submitStatus === "success" && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="p-4 rounded-xl bg-green-500/10 border border-green-500/20 text-green-400 text-sm"
+              >
+                Message sent successfully! I&apos;ll get back to you soon.
+              </motion.div>
+            )}
+
+            {submitStatus === "error" && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="p-4 rounded-xl bg-red-500/10 border border-red-500/20 text-red-400 text-sm"
+              >
+                Failed to send message. Please try again later.
+              </motion.div>
+            )}
           </motion.form>
         </div>
       </div>
