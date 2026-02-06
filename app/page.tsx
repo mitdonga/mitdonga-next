@@ -35,7 +35,9 @@ export default function HomePage() {
         </Suspense>
         <About />
         <Skills />
-        <Projects />
+        <Suspense fallback={null}>
+          <Projects />
+        </Suspense>
         <Services />
         <Suspense fallback={null}>
           <Experience />
